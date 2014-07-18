@@ -18,7 +18,9 @@
       [:script "var urlRoot = 'http://pokeapi.co/api/v1/'"]
       [:script
         {:data-main "js/main" :src "/js/scripts/require.js"}]
-      [:div#main]]))
+      [:div#main]
+      [:img#pokemon {:src "/img/bulbasaur.jpg"}]
+    ]))
 
 (defhtml not-found [& body]
   (html5
