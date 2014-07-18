@@ -7,17 +7,20 @@
 "API Functions"
 (def all (json/write-str (select pokemon)))
 
-(defn get-pokemon [x]
-  (if (= (type (read-string x)) (type 'a))
-      (str (by-name x))
-      (str (by-id x))))
-
 (defn by-id [id]
   (first (select pokemon
     (where {:poke_id
-      [= (read-string id)]}))))
+      [= id]}))))
 
 (defn by-name [name]
   (first (select pokemon
     (where {:poke_name
       [like (str name "%")]}))))
+
+(defn route-by-type [x]
+  (if (= (type x) (type 'a))
+      (by-name x)
+      (by-id x)))
+
+(defn get-pokemon [x]
+  (str (route-by-type (read-string x))))
