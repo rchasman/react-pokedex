@@ -3,7 +3,8 @@
         [hiccup.core]
         [hiccup.page]
         [hiccup.def])
-  (:require [compojure.handler :as handler]
+  (:require [pokedex.api :as api]
+            [compojure.handler :as handler]
             [compojure.route :as route]))
 
 (defhtml application [& body]
@@ -27,6 +28,7 @@
 
 (defroutes app-routes
   (GET "/" [] application)
+  (GET "/all" [] api/all)
   (route/resources "/")
   (route/not-found not-found))
 
