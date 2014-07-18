@@ -10,6 +10,9 @@ function (React, colorThief, Picker, Pokedex, Pokemon) {
 
         handleUpdatePokemon: function(pokemon) {
             pokemon = new Pokemon(pokemon);
+            artRoot = "http://img.pokemondb.net/artwork/";
+            name = pokemon.get("name").toLowerCase();
+            pokemon.set({src: artRoot + name + ".jpg"});
             this.setState({pokemon: pokemon});
         },
 

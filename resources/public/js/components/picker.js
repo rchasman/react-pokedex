@@ -15,9 +15,10 @@ function (React, $, Pokemon) {
                 dataType: 'json'}
             )
             .done(function(data) {
-                $.ajax("http://pokeapi.co/api/v1/pokemon/" + data,
-                    { type: 'GET',
-                      dataType: 'jsonp'})
+                $.ajax("http://pokeapi.co/api/v1/pokemon/" + data, {
+                    type: 'GET',
+                    dataType: 'jsonp'
+                })
                 .done(function(data) {
                     this.props.update(data);
                 }.bind(this))
