@@ -1,5 +1,5 @@
-define(['react', 'jquery'],
-function (React, $) {
+define(['react', 'jquery', 'models/pokemon'],
+function (React, $, Pokemon) {
 
     var Picker = React.createClass({
         displayName: 'Picker',
@@ -10,12 +10,18 @@ function (React, $) {
 
         handleChange: function(e) {
             this.setState({value: e.target.value});
-            console.log(e.target.value);
-            $.ajax("/pokemon/" + e.target.value, { type: 'GET' }
+            $.ajax("/pokemon/" + e.target.value, {
+                type: 'GET',
+                dataType: 'json'}
             )
             .done(function(data) {
-                console.log(data);
-            })
+                $.ajax("http://pokeapi.co/api/v1/pokemon/" + data,
+                    { type: 'GET',
+                      dataType: 'jsonp'})
+                .done(function(data) {
+                    this.props.update(data);
+                }.bind(this))
+            }.bind(this))
             .fail(function(code) {
                 console.log(code);
             });

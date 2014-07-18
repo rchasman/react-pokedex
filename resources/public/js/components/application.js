@@ -1,12 +1,16 @@
-define(['react', 'colorthief', 'components/picker', 'components/pokemon'],
-function (React, colorThief, Picker, Pokemon) {
+define(['react', 'colorthief', 'components/picker', 'components/pokedex', 'models/pokemon'],
+function (React, colorThief, Picker, Pokedex, Pokemon) {
 
     var Application = React.createClass({
         displayName: 'Application',
 
-        getDefaultProps: function() {
-            return {src: "img/bulbasaur.jpg",
-                    name: "Bulbasaur"}
+        getInitialState: function() {
+            return {pokemon: new Pokemon()}
+        },
+
+        handleUpdatePokemon: function(pokemon) {
+            pokemon = new Pokemon(pokemon);
+            this.setState({pokemon: pokemon});
         },
 
         RGBToHex: function(r,g,b){
@@ -29,11 +33,8 @@ function (React, colorThief, Picker, Pokemon) {
 
         render: function() {
             return React.DOM.div({id: 'wrapper'},
-                new Picker(),
-                new Pokemon({
-                    src: this.props.src,
-                    name: this.props.name
-                })
+                new Picker({update: this.handleUpdatePokemon}),
+                new Pokedex({pokemon: this.state.pokemon})
             );
         }
 
