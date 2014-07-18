@@ -23,4 +23,4 @@
       (by-id x)))
 
 (defn get-pokemon [x]
-  (str (route-by-type (read-string x))))
+  (json/write-str (route-by-type (read-string x))))
