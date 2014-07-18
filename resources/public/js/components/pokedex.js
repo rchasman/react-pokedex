@@ -38,7 +38,7 @@ function (React, _, Pokemon, colorThief) {
                 React.DOM.h1({},
                 React.DOM.img({id: 'poke_sprite', src: pokemon.get("spritesrc")}), pokemon.get("name")),
                 React.DOM.img({id: 'poke_img', src: pokemon.get("imgsrc")}),
-                React.DOM.div({id: 'poxedex_inner'},
+                React.DOM.div({className: 'jumbotron', id: 'pokedex_inner'},
                     PokedexTable({pokemon: pokemon})))
         }
 

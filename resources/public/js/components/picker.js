@@ -43,12 +43,15 @@ function (React, $, Pokemon) {
         render: function() {
             var value = this.state.value;
             return React.DOM.div({id: 'picker'},
-                React.DOM.input({
-                    type: "text",
-                    value: value,
-                    placeholder: value,
-                    onChange: this.handleChange
-                })
+                React.DOM.h2({}, "Pokedex:  ",
+                    React.DOM.input({
+                        type: "text",
+                        height: "200px",
+                        value: value,
+                        placeholder: "Enter a Pokemon",
+                        onChange: this.handleChange
+                    })),
+                React.DOM.hr({})
             )
         }
 
