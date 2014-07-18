@@ -19,7 +19,6 @@
       [:script
         {:data-main "js/main" :src "/js/scripts/require.js"}]
       [:div#main]
-      [:img#pokemon {:src "/img/bulbasaur.jpg"}]
     ]))
 
 (defhtml not-found [& body]

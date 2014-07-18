@@ -1,24 +1,18 @@
-define(['react', 'underscore', 'colorthief'],
-function (React, _, colorThief) {
+define(['react', 'underscore', 'colorthief', 'components/pokemon'],
+function (React, _, colorThief, Pokemon) {
 
     var Application = React.createClass({
         displayName: 'Application',
 
         getDefaultProps: function() {
-            return {color: "NONE"}
-        },
-
-        componentDidMount: function() {
-            pokemon = $("#pokemon")[0];
-            console.log(pokemon);
-            var colorThief = new ColorThief();
-            var color = colorThief.getColor(pokemon);
-            this.setProps({color: color});
+            return {src: "img/bulbasaur.jpg",
+                    name: "Bulbasaur"}
         },
 
         render: function() {
-            return React.DOM.div({id : 'wrapper'},
-                React.DOM.p({}, this.props.color));
+            return React.DOM.div({id: 'wrapper'},
+                new Pokemon({src: this.props.src,
+                             name: this.props.name}));
         }
 
     });
