@@ -14,13 +14,24 @@ function (React, $, Pokemon) {
                 type: 'GET',
                 dataType: 'json'}
             )
-            .done(function(data) {
-                $.ajax("http://pokeapi.co/api/v1/pokemon/" + data, {
+            .done(function(id) {
+                $.ajax("http://pokeapi.co/api/v1/pokemon/" + id, {
                     type: 'GET',
                     dataType: 'jsonp'
                 })
                 .done(function(data) {
-                    this.props.update(data);
+                    var spriteUrl = ""
+                    $.ajax("http://pokeapi.co" + data['sprites'][0]['resource_uri'], {
+                        type: 'GET',
+                        dataType: 'jsonp'
+                    })
+                    .done(function(spriteData) {
+                        artRoot = "http://img.pokemondb.net/artwork/";
+                        name = data["name"].toLowerCase();
+                        data['imgsrc'] = artRoot + name + ".jpg";
+                        data['spritesrc'] = "http://pokeapi.co" + spriteData['image'];
+                        this.props.update(data);
+                    }.bind(this))
                 }.bind(this))
             }.bind(this))
             .fail(function(code) {

@@ -35,8 +35,9 @@ function (React, _, Pokemon, colorThief) {
         render: function() {
             pokemon = this.props.pokemon;
             return React.DOM.div({id: 'pokedex_outer'},
-                React.DOM.h1({}, pokemon.get("name")),
-                React.DOM.img({id: 'poke_img', src: pokemon.get("src")}),
+                React.DOM.h1({},
+                React.DOM.img({id: 'poke_sprite', src: pokemon.get("spritesrc")}), pokemon.get("name")),
+                React.DOM.img({id: 'poke_img', src: pokemon.get("imgsrc")}),
                 React.DOM.div({id: 'poxedex_inner'},
                     PokedexTable({pokemon: pokemon})))
         }
