@@ -20,7 +20,7 @@ try:
     with con:
         cur = con.cursor()
         cur.execute("DROP TABLE IF EXISTS Pokemon;")
-        cur.execute("CREATE TABLE Pokemon(Id INT, Name TEXT)")
+        cur.execute("CREATE TABLE Pokemon(poke_id INT, poke_name TEXT)")
         cur.executemany("INSERT INTO Pokemon VALUES(?, ?)", poketuple)
 
     con.commit()
