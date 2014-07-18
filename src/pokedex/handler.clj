@@ -29,6 +29,7 @@
 (defroutes app-routes
   (GET "/" [] application)
   (GET "/all" [] api/all)
+  (GET "/pokemon/:val" [val] (api/get-pokemon val))
   (route/resources "/")
   (route/not-found not-found))
 
