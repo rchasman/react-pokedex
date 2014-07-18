@@ -14,6 +14,7 @@
 
 (defn by-name [name]
   (first (select pokemon
+    (order :poke_name)
     (where {:poke_name
       [like (str name "%")]}))))
 
