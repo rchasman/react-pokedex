@@ -6,7 +6,8 @@ require.config({
         'underscore': ['//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.3/underscore-min'],
         'react': ['//cdnjs.cloudflare.com/ajax/libs/react/0.10.0/react'],
         'modernizr': ['//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min'],
-        'bootstrap': ['//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min']
+        'bootstrap': ['//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min'],
+        'colorthief': ['scripts/colorthief']
     },
     shim: {
         backbone: {
@@ -23,8 +24,8 @@ require.config({
 });
 
 require(['jquery', 'backbone', 'react', 'components/application', 'modernizr',
-        'bootstrap'],
-function($, Backbone, React, Application, Modernizr, Bootstrap) {
+        'colorthief', 'bootstrap'],
+function($, Backbone, React, Application, Modernizr, ColorTheif, Bootstrap) {
 
     // Begin rendering the webapp with the main react component 'Application'
     $(document).ready(function() {

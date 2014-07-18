@@ -12,8 +12,8 @@
         [:title "Reactive Pokedex"]
         [:meta {:name "description" :content "View info about Pokemon reactively."}]
         [:meta {:name "viewport" :content "width=device-width, initial-scale=1.0"}]
-        [:meta {:charset "UTF-8"}]]
-        [:link {:rel "stylesheet" :href "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"}]
+        [:meta {:charset "UTF-8"}]
+        [:link {:rel "stylesheet" :href "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"}]]
     [:body
       [:script "var urlRoot = 'http://pokeapi.co/api/v1/'"]
       [:script
