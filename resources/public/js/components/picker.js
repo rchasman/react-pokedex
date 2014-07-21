@@ -26,8 +26,8 @@ function (React, $, Pokemon) {
                         dataType: 'jsonp'
                     })
                     .done(function(spriteData) {
-                        artRoot = "http://img.pokemondb.net/artwork/";
-                        name = data["name"].toLowerCase();
+                        var artRoot = "http://img.pokemondb.net/artwork/";
+                        var name = data["name"].toLowerCase();
                         data['imgsrc'] = artRoot + name + ".jpg";
                         data['spritesrc'] = "http://pokeapi.co" + spriteData['image'];
                         this.props.update(data);

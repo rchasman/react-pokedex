@@ -9,11 +9,13 @@
 
 (defn by-id [id]
   (first (select pokemon
+    (limit 1)
     (where {:poke_id
       [= id]}))))
 
 (defn by-name [name]
   (first (select pokemon
+    (limit 1)
     (order :poke_name)
     (where {:poke_name
       [like (str name "%")]}))))

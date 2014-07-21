@@ -8,12 +8,12 @@ function (React, _, Pokemon, colorThief) {
             content = _.map(_.keys(pokemon.attributes), function(x) {
                 if (typeof pokemon.get(x) == "object") {
                     return React.DOM.tr({},
-                        React.DOM.td({id: "name"}, x + ": "),
-                        React.DOM.td({id: "data"}, "needs an api call"));
+                        React.DOM.td({className: "name"}, x + ": "),
+                        React.DOM.td({className: "data"}, "needs an api call"));
                 } else {
                     return React.DOM.tr({},
-                        React.DOM.td({id: "name"}, x + ": "),
-                        React.DOM.td({id: "data"}, pokemon.get(x))
+                        React.DOM.td({className: "name"}, x + ": "),
+                        React.DOM.td({className: "data"}, pokemon.get(x))
                         )
                 }
             })
