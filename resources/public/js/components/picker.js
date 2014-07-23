@@ -4,12 +4,7 @@ function (React, $, Pokemon) {
     var Picker = React.createClass({
         displayName: 'Picker',
 
-        getInitialState: function() {
-            return {value: ""}
-        },
-
         handleChange: function(e) {
-            this.setState({value: e.target.value});
             $.ajax("/pokemon/" + e.target.value, {
                 type: 'GET',
                 dataType: 'json'}
@@ -35,26 +30,22 @@ function (React, $, Pokemon) {
                 }.bind(this))
             }.bind(this))
             .fail(function(code) {
-                console.log(code);
+                console.log("not found");
             });
-
         },
 
         render: function() {
-            var value = this.state.value;
             return React.DOM.div({id: 'picker'},
                 React.DOM.h2({}, "Pokedex:  ",
                     React.DOM.input({
                         type: "text",
                         height: "200px",
-                        value: value,
                         placeholder: "Enter a Pokemon",
                         onChange: this.handleChange
                     })),
                 React.DOM.hr({})
             )
         }
-
     });
 
     return Picker;
