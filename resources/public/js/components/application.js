@@ -33,8 +33,8 @@ function (React, colorThief, Picker, Pokedex, Pokemon) {
 
         render: function() {
             return React.DOM.div({id: 'wrapper'},
-                new Picker({update: this.handleUpdatePokemon}),
-                new Pokedex({pokemon: this.state.pokemon})
+                Picker({update: this.handleUpdatePokemon}),
+                Pokedex({pokemon: this.state.pokemon})
             );
         }
 
