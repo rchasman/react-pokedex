@@ -5,7 +5,7 @@ function (React, $, Pokemon) {
         displayName: 'Picker',
 
         handleChange: function(e) {
-            $.ajax("/pokemon/" + e.target.value, {
+            $.ajax("/pokemon/" + $('#picker').val(), {
                 type: 'GET',
                 dataType: 'json'}
             )
@@ -30,18 +30,19 @@ function (React, $, Pokemon) {
                 }.bind(this))
             }.bind(this))
             .fail(function(code) {
-                console.log("not found");
-            });
+                this.props.update({})
+            }.bind(this));
         },
 
         render: function() {
-            return React.DOM.div({id: 'picker'},
+            return React.DOM.div({},
                 React.DOM.h2({}, "Pokedex:  ",
                     React.DOM.input({
+                        id: "picker",
                         type: "text",
                         height: "200px",
                         placeholder: "Enter a Pokemon",
-                        onChange: this.handleChange
+                        onChange: _.debounce(this.handleChange, 240)
                     })),
                 React.DOM.hr({})
             )
