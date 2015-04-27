@@ -13,7 +13,11 @@ You need [Leiningen][1] 1.7.0 or above installed.
 
 You need Python 2.6 or Python 3.0 installed.
 
-## Running
+## Easy Running
+
+    make start
+
+## Fine-Grained Running
 
 First populate the sqlite database with data needed to run:
 
